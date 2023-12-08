@@ -6,6 +6,13 @@ body {
   min-height: 100vh; /* Ensure body covers the full viewport height */
   margin: 0;
 }
+/* CSS for falling images */
+.falling-image {
+  position: fixed;
+  width: 50px; /* Adjust the width as needed */
+  height: auto;
+  opacity: 0;
+}
 
 .container {
   max-width: 800px;
