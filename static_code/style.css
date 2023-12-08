@@ -11,7 +11,7 @@ body {
   position: fixed;
   width: 50px; /* Adjust the width as needed */
   height: auto;
-  opacity: 0;
+  opacity: 1;
 }
 
 .container {
