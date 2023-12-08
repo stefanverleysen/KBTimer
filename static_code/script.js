@@ -77,5 +77,24 @@ document.addEventListener('DOMContentLoaded', function() {
     return number < 10 ? '0' + number : number;
   }
 
-  // Fullscreen functionality and orientation change listener remains the same
+  // Updated fullscreen button event listener
+  fullscreenBtn.addEventListener('click', function() {
+    if (!document.fullscreenElement) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
+        document.documentElement.webkitRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) { /* Firefox */
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+      }
+    }
+  });
 });
