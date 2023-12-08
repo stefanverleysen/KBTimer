@@ -15,9 +15,8 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
-/* Consolidate and correct timer font size */
 #timer {
-  font-size: 5em; /* Adjusted for better visibility */
+  font-size: 5em; /* Consistent font size for better visibility */
   color: white; /* Ensuring timer text is visible */
   margin: 0 auto; /* Center timer horizontally */
   padding: 20px 0; /* Add some vertical padding */
@@ -51,7 +50,12 @@ body {
 
 /* Fullscreen adjustments for timer */
 #timer:-webkit-full-screen, #timer:-moz-full-screen, #timer:fullscreen {
-  font-size: 15vw; /* Adjusted for better readability in fullscreen */
+  font-size: 15vw; /* Adjusted for readability in fullscreen */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Header Styles */
@@ -71,21 +75,21 @@ footer {
   background-color: #000000;
   padding: 10px 0;
   color: white;
-  position: relative; /* Changed from absolute to relative */
+  position: relative;
   width: 100%;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   #timer {
-      font-size: 3em; /* Smaller font for mobile */
+    font-size: 3em; /* Smaller font for mobile */
   }
 
   .container {
-      margin-bottom: 80px; /* Increased bottom margin for mobile */
+    margin-bottom: 80px; /* Increased bottom margin for mobile */
   }
 
   header img {
-      max-width: 70%;
+    max-width: 70%;
   }
 }
