@@ -6,6 +6,7 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
+    margin-bottom: 60px; /* Add bottom margin to the container */
     padding: 20px;
 }
 
@@ -154,3 +155,10 @@ body {
     height: auto; /* Maintain aspect ratio */
     margin-top: 10px; /* Add some margin for spacing */
   }  
+
+  /* Adjustments for mobile view */
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 80px; /* Increase bottom margin for mobile */
+  }
+}
