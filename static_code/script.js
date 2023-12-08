@@ -11,6 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const twoMinutesBtn = document.getElementById('twoMinutes');
   const alarmSoundSelector = document.getElementById('alarmSoundSelector');
 
+  // Function to check if the user is on an iOS device
+  function isIOSDevice() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  }
+
+  // Hide the fullscreen button if on an iOS device
+  if (isIOSDevice()) {
+    fullscreenBtn.style.display = 'none';
+  }
+
   function updateDisplay(minutes, seconds) {
     timerDisplay.innerText = pad(minutes) + ':' + pad(seconds);
   }
@@ -77,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return number < 10 ? '0' + number : number;
   }
 
-  // Updated fullscreen button event listener to target the timer
+  // Fullscreen functionality for the timer
   fullscreenBtn.addEventListener('click', function() {
     if (!document.fullscreenElement && timerDisplay.requestFullscreen) {
       timerDisplay.requestFullscreen();
