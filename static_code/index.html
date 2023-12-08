@@ -30,12 +30,11 @@
       margin: 5px 0; /* Adjust margins as needed */
     }
   </style>
-  <script src="script.js"></script>
 </head>
 <body>
   <!-- Header -->
   <header class="text-center my-3">
-    <img src="images/TAC-TIMER.png" alt="TAC TIMER" class="img-fluid" style="max-width: 100%; height: auto;">
+    <img src="images/TAC-TIMER.png" alt="TAC TIMER" class="img-fluid" style="max-width: 900px; height: auto;">
   </header>
 
   <div class="container my-4">
@@ -59,9 +58,9 @@
       <div class="card-body text-center">
         <label for="alarmSoundSelector" style="color: white;">Choose an Alarm Sound:</label>
         <select id="alarmSoundSelector" class="form-control custom-select">
-          <option value="Audio/biodynamic.mp3">Biodynamic</option>
-          <option value="Audio/manvoice.mp3">Gentleman's Voice</option>
-          <option value="Audio/womanvoice.mp3">Fine Lady's Voice</option>
+          <option value="Audio/manvoice.mp3">Man Voice</option>
+          <option value="Audio/womanvoice.mp3">Woman Voice</option>
+          <option value="Audio/otheraudio.mp3">Other Audio</option>
         </select>
       </div>
     </div>
@@ -71,5 +70,8 @@
   <footer class="text-center my-3">
     <p>Tactical KB Timer by Asan Digital</p>
   </footer>
+  
+  <!-- Include your external JavaScript file -->
+  <script src="script.js"></script>
 </body>
 </html>
