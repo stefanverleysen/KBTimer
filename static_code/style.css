@@ -33,12 +33,12 @@ body {
   margin: 2px;
 }
 
-.red-text {
-  color: red;
+.red-text { 
+  color: red !important;
 }
 
 .blink-text {
-  animation: blinker 1s linear infinite;
+  animation: blinker 1s linear infinite !important; 
 }
 
 @keyframes blinker {
