@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const timerDisplay = document.getElementById('timer');
     const startStopBtn = document.getElementById('startStop');
     const resetBtn = document.getElementById('reset');
-    const thirtySecondsBtn = document.getElementById('thirtySeconds'); // Added 30 Second button
+    const thirtySecondsBtn = document.getElementById('thirtySeconds');
     const twoMinutesBtn = document.getElementById('twoMinutes');
     const threeMinutesBtn = document.getElementById('threeMinutes');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function playAlarm() {
-        const audio = new Audio('alarm.mp3');
+        const audio = new Audio('Audio/alarm.mp3'); // Update the path to the audio file
         audio.play();
     }
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     resetBtn.addEventListener('click', resetTimer);
 
-    thirtySecondsBtn.addEventListener('click', function() { startTimer(30); }); // 30 Seconds
+    thirtySecondsBtn.addEventListener('click', function() { startTimer(30); });
     twoMinutesBtn.addEventListener('click', function() { startTimer(120); });
     threeMinutesBtn.addEventListener('click', function() { startTimer(180); });
 

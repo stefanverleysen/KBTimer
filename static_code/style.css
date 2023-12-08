@@ -120,4 +120,9 @@ body {
     background-color: #808080; /* Gray background color when focused */
     color: #FFF; /* White text color when focused */
   }
+
+  #timer {
+    font-size: 36px; /* Adjust the font size as needed */
+    padding: 10px; /* Adjust padding as needed */
+  }
   
