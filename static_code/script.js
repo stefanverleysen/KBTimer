@@ -11,16 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const twoMinutesBtn = document.getElementById('twoMinutes');
   const alarmSoundSelector = document.getElementById('alarmSoundSelector');
 
-  // Function to check if the user is on an iOS device
-  function isIOSDevice() {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  }
-
-  // Hide the fullscreen button if on an iOS device
-  if (isIOSDevice()) {
-    fullscreenBtn.style.display = 'none';
-  }
-
   function updateDisplay(minutes, seconds) {
     timerDisplay.innerText = pad(minutes) + ':' + pad(seconds);
   }
@@ -46,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
       isRunning = false;
       playSelectedAudio();
     } else if (countdownSeconds <= 10) {
-      timerDisplay.classList.add('red-text', 'blink-text');
+      timerDisplay.classList.add('red-text', 'blink-text'); // Start blinking and turn red
     }
   }
 
