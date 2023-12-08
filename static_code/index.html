@@ -6,12 +6,34 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
+    header img {
+      max-width: 100%;
+      height: auto;
+    }
+    #timer {
+      font-size: 3em; /* Increase font size */
+    }
+    @media (max-width: 768px) {
+      header img {
+        max-width: 70%; /* Adjust for mobile */
+      }
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px; /* Spacing between buttons */
+    }
+    .btn-row button {
+      flex: 1 1 30%; /* Flex grow, flex shrink, flex basis */
+      margin-bottom: 10px; /* Spacing below buttons */
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header class="text-center my-3">
-    <img src="images/TAC-TIMER.png" alt="TAC TIMER" class="img-fluid" style="max-width: 900px; height: auto;">
+    <img src="images/TAC-TIMER.png" alt="TAC TIMER" class="img-fluid">
   </header>
 
   <div class="container my-4">
@@ -24,10 +46,12 @@
     <div class="text-center my-2 btn-row">
       <button id="startStop" class="btn btn-primary btn-slim">Start/Stop</button>
       <button id="reset" class="btn btn-danger btn-slim">Reset</button>
+      <button id="fullscreenBtn" class="btn btn-secondary btn-slim">Fullscreen</button>
+    </div>
+    <div class="text-center my-2 btn-row">
       <button id="thirtySeconds" class="btn btn-info btn-slim">30 Seconds</button>
       <button id="twoMinutes" class="btn btn-success btn-slim">2 Minutes</button>
-      <button id="threeMinutes" class="btn btn-success btn-slim">3 Minutes</button>
-      <button id="fullscreenBtn" class="btn btn-secondary btn-slim">Fullscreen</button>
+      <button id="fiveMinutes" class="btn btn-success btn-slim">5 Minutes</button> <!-- Assuming you wanted a 5-minute button -->
     </div>
     
     <!-- Alarm Sound Selection -->
