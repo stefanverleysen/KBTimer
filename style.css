@@ -1,0 +1,123 @@
+/* Add your custom styles here */
+body {
+    background-color: #000000;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(0, 0, 0);
+}
+
+.card-text {
+    font-size: 20rem;
+    margin: 0;
+    color: white;
+}
+
+.btn {
+    font-size: 1rem; /* Adjusted font size */
+    padding: 5px 10px; /* Reduced padding */
+    margin: 2px; /* Reduced margin */
+}
+
+.red-text {
+    color: red;
+}
+
+.blink-text {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Adjustments for horizontal button alignment */
+.btn-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Fullscreen mode adjustments */
+#timer:-webkit-full-screen, #timer:-moz-full-screen, #timer:fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    font-size: 50vw; /* Large font size, adjust as needed */
+    margin: 0; /* Remove any default margins */
+}
+/* Header Styles */
+header {
+    background-color: #000000; /* Dark background for the header */
+    padding: 10px 0; /* Vertical padding */
+    color: white; /* Text color */
+}
+
+header img {
+    max-height: 250px; /* Adjust logo size */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000000; /* Dark background for the footer */
+    padding: 10px 0; /* Vertical padding */
+    color: white; /* Text color */
+    position: absolute;
+    bottom: 0;
+    width: 100%; /* Full width */
+}
+
+/* Adjust the body padding to accommodate the footer */
+body {
+    margin-bottom: 60px; /* Adjust as needed based on footer height */
+}
+
+/* Updated Military Grade Selector Styles */
+.custom-select-military {
+    background-color: #006400; /* Dark green background color */
+    color: #FFF; /* White text color */
+    font-weight: bold; /* Bold text */
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .custom-select-military:focus {
+    background-color: #228B22; /* Darker green when focused */
+    color: #FFF; /* White text color when focused */
+  }
+  
+  .custom-select-military::after {
+    content: "▼"; /* Custom dropdown indicator (arrow) */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #FFF; /* White color for the arrow */
+  }
+  /* Corrected Selector Styles */
+.custom-select {
+    background-color: #808080; /* Gray background color */
+    color: #FFF; /* White text color */
+    font-weight: bold; /* Bold text */
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .custom-select:focus {
+    background-color: #808080; /* Gray background color when focused */
+    color: #FFF; /* White text color when focused */
+  }
+  

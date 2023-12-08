@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tactical KB Timer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* Military Grade Button Styles */
+    .btn-military {
+      background-color: #4B5320; /* Olive green background color */
+      color: #FFF; /* White text color */
+      text-transform: uppercase; /* Uppercase text */
+      border: none;
+      padding: 10px 20px; /* Adjust padding as needed */
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn-military:hover {
+      background-color: #556B2F; /* Darker green on hover */
+    }
+
+    /* Military Grade Selector Styles */
+    .custom-select-military {
+      background-color: #4B5320; /* Olive green background color */
+      color: #FFF; /* White text color */
+      font-weight: bold; /* Bold text */
+      border: none;
+      border-radius: 5px;
+    }
+
+    .custom-select-military:focus {
+      background-color: #556B2F; /* Darker green when focused */
+    }
+
+    .custom-select-military::after {
+      content: "▼"; /* Custom dropdown indicator (arrow) */
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: #FFF; /* White color for the arrow */
+    }
+  </style>
+  <script src="script.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="text-center my-3">
+    <img src="images/TAC-TIMER.png" alt="TAC TIMER" class="img-fluid">
+  </header>
+
+  <div class="container my-4"> <!-- Increased the container's margin-bottom -->
+    <!-- Standalone Timer -->
+    <div class="text-center my-2">
+      <p class="card-text" id="timer">00:00</p>
+    </div>
+
+<!-- Control Buttons Card -->
+<div class="card my-2">
+    <div class="card-body text-center">
+      <div class="btn-row">
+        <button id="startStop" class="btn btn-primary btn-sm mx-1">Start/Stop</button>
+        <button id="reset" class="btn btn-danger btn-sm mx-1">Reset</button>
+        <button id="thirtySeconds" class="btn btn-info btn-sm mx-1">30 Seconds</button> <!-- New 30 Second button -->
+        <button id="twoMinutes" class="btn btn-success btn-sm mx-1">2 Minutes</button> <!-- Adjusted color to green -->
+        <button id="threeMinutes" class="btn btn-success btn-sm mx-1">3 Minutes</button> <!-- Adjusted color to green -->
+        <button id="fullscreenBtn" class="btn btn-secondary btn-sm mx-1">Fullscreen</button>
+      </div>
+    </div>
+  </div>
+  
+  
+<!-- Alarm Sound Selection (with adjusted width) -->
+<div class="card my-2">
+    <div class="card-body text-center">
+      <label for="alarmSoundSelector" style="color: white;">Choose an Alarm Sound:</label>
+      <select id="alarmSoundSelector" class="form-control custom-select" style="width: 100%;"> <!-- Adjusted width to 50% -->
+        <option value="Audio/biodynamic.mp3">Biodynamic</option>
+        <option value="Audio/manvoice.mp3">Gentleman's Voice</option>
+        <option value="Audio/womanvoice.mp3">Fine Lady's Voice</option>
+      </select>
+    </div>
+  </div>
+  
+  
+
+  <!-- Footer -->
+  <footer class="text-center my-3">
+    <p>© 2023 Tactical KB Timer by Asan Digital</p>
+  </footer>
+</body>
+</html>
