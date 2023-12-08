@@ -1,6 +1,6 @@
 /* Custom styles */
 body {
-  background-color: #000000;
+  background-color: #323230;
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Stack child elements vertically */
   min-height: 100vh; /* Ensure body covers the full viewport height */
