@@ -9,19 +9,20 @@
     /* Your existing styles here */
 
     /* Increase button size for mobile */
-    .btn-lg {
-      padding: 15px 30px; /* Adjust padding as needed */
+    .btn-slim {
+      padding: 10px 20px; /* Adjust padding as needed */
     }
 
-    /* Adjust card width for smaller screens */
-    .card {
-      width: 90%; /* Adjust the width as needed */
-      margin: 0 auto; /* Center the card */
+    /* Adjust timer size */
+    #timer {
+      font-size: 48px; /* Adjust the font size as needed */
+      padding: 10px; /* Adjust padding as needed */
     }
 
-    /* Adjust custom select width for smaller screens */
-    .custom-select {
-      width: 100%; /* Adjust the width as needed */
+    /* Make buttons slim and inline */
+    .btn-row .btn {
+      padding: 5px 10px; /* Adjust padding as needed */
+      margin-right: 5px; /* Add margin between buttons */
     }
 
     /* Adjust margins for mobile */
@@ -43,20 +44,16 @@
       <p class="card-text" id="timer">00:00</p>
     </div>
 
-    <!-- Control Buttons Card -->
-    <div class="card my-2">
-      <div class="card-body text-center">
-        <div class="btn-row">
-          <button id="startStop" class="btn btn-primary btn-lg mx-1">Start/Stop</button>
-          <button id="reset" class="btn btn-danger btn-lg mx-1">Reset</button>
-          <button id="thirtySeconds" class="btn btn-info btn-lg mx-1">30 Seconds</button>
-          <button id="twoMinutes" class="btn btn-success btn-lg mx-1">2 Minutes</button>
-          <button id="threeMinutes" class="btn btn-success btn-lg mx-1">3 Minutes</button>
-          <button id="fullscreenBtn" class="btn btn-secondary btn-lg mx-1">Fullscreen</button>
-        </div>
-      </div>
+    <!-- Control Buttons -->
+    <div class="text-center my-2 btn-row">
+      <button id="startStop" class="btn btn-primary btn-slim">Start/Stop</button>
+      <button id="reset" class="btn btn-danger btn-slim">Reset</button>
+      <button id="thirtySeconds" class="btn btn-info btn-slim">30 Seconds</button>
+      <button id="twoMinutes" class="btn btn-success btn-slim">2 Minutes</button>
+      <button id="threeMinutes" class="btn btn-success btn-slim">3 Minutes</button>
+      <button id="fullscreenBtn" class="btn btn-secondary btn-slim">Fullscreen</button>
     </div>
-
+    
     <!-- Alarm Sound Selection -->
     <div class="card my-2">
       <div class="card-body text-center">
@@ -72,7 +69,7 @@
 
   <!-- Footer -->
   <footer class="text-center my-3">
-    <p>© 2023 Tactical KB Timer by Asan Digital</p>
+    <p>Tactical KB Timer by Asan Digital</p>
   </footer>
 </body>
 </html>
