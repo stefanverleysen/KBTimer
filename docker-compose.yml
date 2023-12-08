@@ -34,7 +34,7 @@ services:
       - "traefik.http.routers.static-site-http.rule=Host(`kbtimer.com`)"
       - "traefik.http.routers.static-site-http.entrypoints=web"
       - "traefik.http.routers.static-site-http.middlewares=https-redirect"
-      - "traefik.http.routers.static-site-https.rule=Host('kbtimer.com')"
+      - "traefik.http.routers.static-site-https.rule=Host(`kbtimer.com`)"
       - "traefik.http.routers.static-site-https.entrypoints=websecure"
       - "traefik.http.routers.static-site-https.tls.certresolver=myresolver"
     volumes:
