@@ -6,41 +6,27 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
-    /* Military Grade Button Styles */
-    .btn-military {
-      background-color: #4B5320; /* Olive green background color */
-      color: #FFF; /* White text color */
-      text-transform: uppercase; /* Uppercase text */
-      border: none;
-      padding: 10px 20px; /* Adjust padding as needed */
-      border-radius: 5px;
-      font-weight: bold;
+    /* Your existing styles here */
+
+    /* Increase button size for mobile */
+    .btn-lg {
+      padding: 15px 30px; /* Adjust padding as needed */
     }
 
-    .btn-military:hover {
-      background-color: #556B2F; /* Darker green on hover */
+    /* Adjust card width for smaller screens */
+    .card {
+      width: 90%; /* Adjust the width as needed */
+      margin: 0 auto; /* Center the card */
     }
 
-    /* Military Grade Selector Styles */
-    .custom-select-military {
-      background-color: #4B5320; /* Olive green background color */
-      color: #FFF; /* White text color */
-      font-weight: bold; /* Bold text */
-      border: none;
-      border-radius: 5px;
+    /* Adjust custom select width for smaller screens */
+    .custom-select {
+      width: 100%; /* Adjust the width as needed */
     }
 
-    .custom-select-military:focus {
-      background-color: #556B2F; /* Darker green when focused */
-    }
-
-    .custom-select-military::after {
-      content: "▼"; /* Custom dropdown indicator (arrow) */
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      color: #FFF; /* White color for the arrow */
+    /* Adjust margins for mobile */
+    .my-2 {
+      margin: 5px 0; /* Adjust margins as needed */
     }
   </style>
   <script src="script.js"></script>
@@ -51,40 +37,38 @@
     <img src="images/TAC-TIMER.png" alt="TAC TIMER" class="img-fluid">
   </header>
 
-  <div class="container my-4"> <!-- Increased the container's margin-bottom -->
+  <div class="container my-4">
     <!-- Standalone Timer -->
     <div class="text-center my-2">
       <p class="card-text" id="timer">00:00</p>
     </div>
 
-<!-- Control Buttons Card -->
-<div class="card my-2">
-    <div class="card-body text-center">
-      <div class="btn-row">
-        <button id="startStop" class="btn btn-primary btn-sm mx-1">Start/Stop</button>
-        <button id="reset" class="btn btn-danger btn-sm mx-1">Reset</button>
-        <button id="thirtySeconds" class="btn btn-info btn-sm mx-1">30 Seconds</button> <!-- New 30 Second button -->
-        <button id="twoMinutes" class="btn btn-success btn-sm mx-1">2 Minutes</button> <!-- Adjusted color to green -->
-        <button id="threeMinutes" class="btn btn-success btn-sm mx-1">3 Minutes</button> <!-- Adjusted color to green -->
-        <button id="fullscreenBtn" class="btn btn-secondary btn-sm mx-1">Fullscreen</button>
+    <!-- Control Buttons Card -->
+    <div class="card my-2">
+      <div class="card-body text-center">
+        <div class="btn-row">
+          <button id="startStop" class="btn btn-primary btn-lg mx-1">Start/Stop</button>
+          <button id="reset" class="btn btn-danger btn-lg mx-1">Reset</button>
+          <button id="thirtySeconds" class="btn btn-info btn-lg mx-1">30 Seconds</button>
+          <button id="twoMinutes" class="btn btn-success btn-lg mx-1">2 Minutes</button>
+          <button id="threeMinutes" class="btn btn-success btn-lg mx-1">3 Minutes</button>
+          <button id="fullscreenBtn" class="btn btn-secondary btn-lg mx-1">Fullscreen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alarm Sound Selection -->
+    <div class="card my-2">
+      <div class="card-body text-center">
+        <label for="alarmSoundSelector" style="color: white;">Choose an Alarm Sound:</label>
+        <select id="alarmSoundSelector" class="form-control custom-select">
+          <option value="Audio/biodynamic.mp3">Biodynamic</option>
+          <option value="Audio/manvoice.mp3">Gentleman's Voice</option>
+          <option value="Audio/womanvoice.mp3">Fine Lady's Voice</option>
+        </select>
       </div>
     </div>
   </div>
-  
-  
-<!-- Alarm Sound Selection (with adjusted width) -->
-<div class="card my-2">
-    <div class="card-body text-center">
-      <label for="alarmSoundSelector" style="color: white;">Choose an Alarm Sound:</label>
-      <select id="alarmSoundSelector" class="form-control custom-select" style="width: 100%;"> <!-- Adjusted width to 50% -->
-        <option value="Audio/biodynamic.mp3">Biodynamic</option>
-        <option value="Audio/manvoice.mp3">Gentleman's Voice</option>
-        <option value="Audio/womanvoice.mp3">Fine Lady's Voice</option>
-      </select>
-    </div>
-  </div>
-  
-  
 
   <!-- Footer -->
   <footer class="text-center my-3">
