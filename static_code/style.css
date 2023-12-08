@@ -38,12 +38,12 @@ body {
 }
 
 .blink-text {
-  animation: blinker 1s linear infinite !important; 
+  animation: blinker 0.5s linear infinite !important; 
 }
 
 @keyframes blinker {
   50% {
-    opacity: 0.5;
+    opacity: 1;
   }
 }
 
