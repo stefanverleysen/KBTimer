@@ -34,11 +34,11 @@ body {
 }
 
 .red-text { 
-  color: red !important;
+  color: red;
 }
 
 .blink-text {
-  animation: blinker 0.5s linear infinite !important; 
+  animation: blinker 1s linear infinite; 
 }
 
 @keyframes blinker {
