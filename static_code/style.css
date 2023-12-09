@@ -64,29 +64,30 @@ body {
   flex-wrap: wrap;
 }
 
-/* Fullscreen adjustments for layout */
-#fullscreen-container {
+/* Fullscreen specific adjustments */
+#fullscreen-container:-webkit-full-screen,
+#fullscreen-container:-moz-full-screen,
+#fullscreen-container:fullscreen {
   display: flex;
   justify-content: center;
   align-items: start;
-  height: 100vh; /* Full viewport height */
-  padding: 20px;
+  width: 100vw;
+  height: 100vh;
 }
 
-#timer-container {
-  flex-basis: 50%; /* Adjust the width as needed */
+#timer-container:-webkit-full-screen,
+#timer-container:-moz-full-screen,
+#timer-container:fullscreen {
+  flex-basis: 50%;
   text-align: center;
 }
 
-#lap-records-container {
-  flex-basis: 50%; /* Adjust the width as needed */
+#lap-records-container:-webkit-full-screen,
+#lap-records-container:-moz-full-screen,
+#lap-records-container:fullscreen {
+  flex-basis: 50%;
   max-height: 100vh;
   overflow-y: auto; /* Enable scroll for long tables */
-}
-
-#lap-records {
-  width: 100%;
-  /* Additional table styles here */
 }
 
 /* Header Styles */
