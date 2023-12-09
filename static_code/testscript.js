@@ -1,27 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
+
     let timer;
+  
     let isRunning = false;
+  
     let countdownSeconds = 0;
   
     const timerDisplay = document.getElementById('timer');
+  
     const startStopBtn = document.getElementById('startStop');
+  
     const resetBtn = document.getElementById('reset');
+  
     const fullscreenBtn = document.getElementById('fullscreenBtn');
+  
     const tenSecondsBtn = document.getElementById('tenSeconds');
+  
     const thirtySecondsBtn = document.getElementById('thirtySeconds');
+  
     const twoMinutesBtn = document.getElementById('twoMinutes');
+  
     const alarmSoundSelector = document.getElementById('alarmSoundSelector');
   
     function updateDisplay(minutes, seconds) {
-      timerDisplay.innerText = pad(minutes) + ':' + pad(seconds);
+      timerDisplay.innerText = pad(minutes) + ':' + pad(seconds); 
     }
   
     function startTimer(duration) {
       countdownSeconds = duration;
+      
       if (!isRunning) {
         timer = setInterval(updateTime, 1000);
         isRunning = true;
       }
+      
       resetColor();
     }
   
@@ -30,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
       let seconds = countdownSeconds % 60;
   
       updateDisplay(minutes, seconds);
+  
       countdownSeconds--;
   
       if (countdownSeconds < 0) {
@@ -60,11 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
       timerDisplay.classList.remove('red-text', 'blink-text');
     }
   
-    startStopBtn.addEventListener('click', function () {
+    startStopBtn.addEventListener('click', function() {
       if (isRunning) {
         clearInterval(timer);
         isRunning = false;
-        resetColor();
+        resetColor(); 
       } else {
         startTimer(countdownSeconds > 0 ? countdownSeconds : 60);
       }
@@ -72,14 +85,16 @@ document.addEventListener('DOMContentLoaded', function () {
   
     resetBtn.addEventListener('click', resetTimer);
   
-    tenSecondsBtn.addEventListener('click', function () {
-        startTimer(10);
-      });
-    thirtySecondsBtn.addEventListener('click', function () {
+    tenSecondsBtn.addEventListener('click', function() {
+      startTimer(10); 
+    });
+  
+    thirtySecondsBtn.addEventListener('click', function() {
       startTimer(30);
     });
-    twoMinutesBtn.addEventListener('click', function () {
-      startTimer(120);
+  
+    twoMinutesBtn.addEventListener('click', function() {
+      startTimer(120); 
     });
   
     function pad(number) {
@@ -87,31 +102,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   
     // Fullscreen functionality for the timer
-    fullscreenBtn.addEventListener('click', function () {
+  
+    fullscreenBtn.addEventListener('click', function() {
       if (!document.fullscreenElement && timerDisplay.requestFullscreen) {
         timerDisplay.requestFullscreen();
-      } else if (document.exitFullscreen) {
+      } else if (document.exitFullscreen) {  
         document.exitFullscreen();
       }
     });
-
- function initiateFallingImagesAnimation() {
-  const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
-
-  // Check if the selected audio is "General Moore"
-  if (selectedOption === 'Audio/manvoice.mp3') {
-    const img = document.createElement('img');
-    img.src = 'images/jimtimesup.png'; // Image for General Moore
-    img.classList.add('falling-image');
-    document.body.appendChild(img);
   
-    setTimeout(() => {
-      img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name
-    }, 100); // Short delay
+    function initiateFallingImagesAnimation() {
+      const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
   
-    img.addEventListener('animationend', () => {
-      img.remove(); // Removes the image after animation
-    });
-      
-
-  }
+      // Check if the selected audio is "General Moore"
+  
+      if (selectedOption === 'Audio/manvoice.mp3') {
+        const img = document.createElement('img');
+        img.src = 'images/jimtimesup.png'; // Image for General Moore  
+        img.classList.add('falling-image');
+        document.body.appendChild(img);
+  
+        setTimeout(() => {
+          img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name  
+        }, 100);  // Short delay
+  
+        img.addEventListener('animationend', () => {
+          img.remove(); // Removes the image after animation  
+        });
+      }
+    }  
+  });
