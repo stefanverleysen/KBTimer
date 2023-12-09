@@ -1,60 +1,79 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Tactical KB Timer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+    <style>
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+        #timer {
+            font-size: 15em; /* Increase font size */
+            margin: 40px 0;
+        }
+        @media (max-width: 768px) {
+            header img {
+                max-width: 70%; /* Adjust for mobile */
+            }
+            #timer {
+                font-size: 5em; /* Adjust font size for smaller screens */
+            }
+        }
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Spacing between buttons */
+        }
+        .btn-row button {
+            flex: 1 1 30%; /* Flex grow, flex shrink, flex basis */
+            margin-bottom: 10px; /* Spacing below buttons */
+        }
+    </style>
+</head>
 <body>
     <!-- Header -->
     <header class="text-center my-3">
         <img src="images/TACTICAL-KB-TIMER.png" alt="TACTICAL KB TIMER" class="img-fluid">
     </header>
 
-    <!-- Container Layout -->
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left Side Container (col-md-6) -->
-            <div class="col-md-6">
-                <!-- Timer Container -->
-                <div class="text-center">
-                    <!-- Standalone Timer -->
-                    <p class="card-text" id="timer">00:00</p>
+    <div class="container my-4">
+        <!-- Timer Display -->
+        <p class="card-text" id="timer">00:00</p>
 
-                    <!-- Control Buttons -->
-                    <div class="my-2 btn-row">
-                        <button id="startKBSession" class="btn btn-success">Start KB Session</button>
-                        <button id="addTenSeconds" class="btn btn-info">+10 Sec</button>
-                        <button id="addThirtySeconds" class="btn btn-info">+30 Sec</button>
-                        <button id="recordLap" class="btn btn-primary">Log</button>
-                    </div>
+        <!-- Control Buttons -->
+        <div class="text-center my-2 btn-row">
+            <button id="startKBSession" class="btn btn-success btn-slim">Start KB Session</button>
+            <button id="addTenSeconds" class="btn btn-info btn-slim">+10 Sec</button>
+            <button id="addThirtySeconds" class="btn btn-info btn-slim">+30 Sec</button>
+            <button id="recordLap" class="btn btn-primary btn-slim">Log</button>
+        </div>
 
-                    <!-- Audio Reminder Selection -->
-                    <div class="form-group">
-                        <label for="alarmSoundSelector">Select Audio Reminder:</label>
-                        <select id="alarmSoundSelector" class="form-control custom-select">
-                            <option value="Audio/manvoice.mp3">General Moore</option>
-                            <option value="Audio/womanvoice.mp3">Airline Lady</option>
-                            <option value="Audio/biodynamic.mp3">Biodynamic Sounds</option>
-                            <option value="Audio/time_up_samsung.mp3">Samsung Alarm</option>
-                            <option value="Audio/wolf5.mp3">Wolf Howl</option>
-                            <option value="Audio/cheer.mp3">Cheering Crowd</option>
-                        </select>
-                    </div>
-                </div>
+        <!-- Audio Reminder Selection -->
+        <div class="card my-2">
+            <div class="card-body text-center">
+              <label for="alarmSoundSelector" style="color: white;">Select Audio Reminder:</label>
+              <select id="alarmSoundSelector" class="form-control custom-select">
+                <option value="Audio/manvoice.mp3">General Moore</option>
+                <option value="Audio/womanvoice.mp3">Airline Lady</option>
+                <option value="Audio/biodynamic.mp3">Biodynamic Sounds</option>
+                <option value="Audio/time_up_samsung.mp3">Samsung Alarm</option>
+                <option value="Audio/wolf5.mp3">Wolf Howl</option>
+                <option value="Audio/cheer.mp3">Cheering Crowd</option>
+      
+      
+              </select>
             </div>
+          </div>
 
-            <!-- Right Side Container (col-md-6) -->
-            <div class="col-md-6">
-                <!-- Lap Records Table -->
-                <div id="lap-records-container" class="ml-4">
-                    <table id="lap-records">
-                        <!-- Lap records will be dynamically populated here -->
-                    </table>
-                </div>
-            </div>
+        <!-- Lap Records Table -->
+        <div id="lap-records-container" class="my-4">
+            <table id="lap-records" class="table mx-auto">
+                <!-- Lap records will be dynamically populated here -->
+            </table>
         </div>
     </div>
 
@@ -66,5 +85,4 @@
     <!-- Include your external JavaScript file -->
     <script src="testscript.js"></script>
 </body>
-
 </html>
