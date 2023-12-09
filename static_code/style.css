@@ -1,9 +1,9 @@
 /* Custom styles */
 body {
   background-color: #000000;
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack child elements vertically */
-  min-height: 100vh; /* Ensure body covers the full viewport height */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -12,10 +12,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  width: auto; /* Adjust as needed */
-  height: auto; /* Adjust as needed */
+  width: auto;
+  height: auto;
   z-index: 9999;
-  animation: growAndShrink 10s forwards; /* Animation for falling images */
+  animation: growAndShrink 10s forwards;
 }
 
 .container {
@@ -24,10 +24,17 @@ body {
   padding: 20px;
 }
 
+/* Container Layout */
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
 .card {
   border: none;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(55, 212, 229);
 }
 
 #timer {
@@ -35,7 +42,7 @@ body {
   color: white;
   margin: 0 auto;
   padding: 20px 0;
-  text-align: center; /* Center text within the timer div */
+  text-align: center;
 }
 
 .btn {
@@ -75,6 +82,13 @@ body {
   height: 100vh;
 }
 
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #timer-container:-webkit-full-screen,
 #timer-container:-moz-full-screen,
 #timer-container:fullscreen {
@@ -87,7 +101,7 @@ body {
 #lap-records-container:fullscreen {
   flex-basis: 50%;
   max-height: 100vh;
-  overflow-y: auto; /* Enable scroll for long tables */
+  overflow-y: auto;
   background-color: black;
   color: white;
 }
@@ -110,7 +124,7 @@ footer {
   padding: 10px 0;
   color: white;
   width: 100%;
-  margin-top: auto; /* Push the footer to the bottom */
+  margin-top: auto;
 }
 
 /* Responsive adjustments */
@@ -125,7 +139,7 @@ footer {
   }
 
   #timer {
-    font-size: 3em; /* Smaller font size for smaller screens */
+    font-size: 3em;
   }
 
   .container {
@@ -134,44 +148,5 @@ footer {
 
   header img {
     max-width: 70%;
-  }
-}
-
-#lap-records {
-  width: 100%; /* Full width of its container */
-  border-collapse: collapse; /* Collapses border spacing */
-  text-align: left; /* Align text to the left within cells */
-  color: white; /* White text color */
-}
-
-#lap-records th, #lap-records td {
-  padding: 8px; /* Padding within cells */
-  border: 1px solid white; /* White border for cells */
-}
-
-#lap-records th {
-  background-color: #333; /* Dark background for header */
-}
-
-#lap-records tr:nth-child(even) {
-  background-color: #222; /* Slightly lighter background for even rows */
-}
-
-@keyframes growAndShrink {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-  }
-  30% {
-    transform: translate(-50%, -50%) scale(1.2); /* Slightly larger scale for a jarring effect */
-    opacity: 1;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(0.8); /* Smaller scale for a jarring effect */
-    opacity: 1;
-  }
-  70% {
-    transform: translate(-50%, -50%) scale(1.2); /* Back to larger scale */
-    opacity: 1;
   }
 }

@@ -13,17 +13,18 @@
         }
 
         #timer {
-            font-size: 15em; /* Increase font size */
+            font-size: 15em;
             margin: 40px 0;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
             header img {
-                max-width: 70%; /* Adjust for mobile */
+                max-width: 70%;
             }
 
             #timer {
-                font-size: 5em; /* Adjust font size for smaller screens */
+                font-size: 5em;
             }
         }
 
@@ -31,40 +32,97 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px; /* Spacing between buttons */
+            gap: 10px;
         }
 
         .btn-row button {
-            flex: 1 1 30%; /* Flex grow, flex shrink, flex basis */
-            margin-bottom: 10px; /* Spacing below buttons */
+            flex: 1 1 30%;
+            margin-bottom: 10px;
+        }
+
+        /* New CSS for containers */
+        .container-fluid {
+            padding: 0;
+        }
+
+        .left-container {
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            width: 50%;
+        }
+
+        .right-container {
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            width: 50%;
+        }
+
+        .controls-container {
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+
+        .lap-results {
+            background-color: #f8f9fa;
+            padding: 10px;
+            height: 100%; /* Make the lap results take up the entire right panel */
+        }
+
+        /* Additional CSS for button size */
+        .btn-row button {
+            flex: 1 1 auto;
+        }
+
+        /* CSS for audio reminder selection */
+        #alarmSoundSelector {
+            margin-top: 10px;
         }
     </style>
 </head>
 
+
 <body>
     <!-- Header -->
     <header class="text-center my-3">
-        <img src="images/TACTICAL-KB-TIMER.png" alt="TACTIAL KB TIMER" class="img-fluid">
+        <img src="images/TACTICAL-KB-TIMER.png" alt="TACTICAL KB TIMER" class="img-fluid">
     </header>
 
-    <!-- Non-Fullscreen Mode Container -->
-    <div class="container mt-4">
+    <!-- Container Layout -->
+    <div class="container-fluid">
         <div class="row">
-            <!-- Timer on the Left -->
+            <!-- Left Side Container (col-md-6) -->
             <div class="col-md-6">
-                <!-- Standalone Timer -->
-                <p class="card-text" id="timer">00:00</p>
+                <!-- Timer Container -->
+                <div class="text-center">
+                    <!-- Standalone Timer -->
+                    <p class="card-text" id="timer">00:00</p>
 
-                <!-- Control Buttons -->
-                <div class="my-2 btn-row">
-                    <button id="startKBSession" class="btn btn-success">Start KB Session</button>
-                    <button id="addTenSeconds" class="btn btn-info">+10 Seconds</button>
-                    <button id="addThirtySeconds" class="btn btn-info">+30 Seconds</button>
-                    <button id="recordLap" class="btn btn-primary">Lap</button>
+                    <!-- Control Buttons -->
+                    <div class="my-2 btn-row">
+                        <button id="startKBSession" class="btn btn-success">Start KB Session</button>
+                        <button id="addTenSeconds" class="btn btn-info">+10 Sec</button>
+                        <button id="addThirtySeconds" class="btn btn-info">+30 Sec</button>
+                        <button id="recordLap" class="btn btn-primary">Log</button>
+                    </div>
+
+                    <!-- Audio Reminder Selection -->
+                    <div class="form-group">
+                        <label for="alarmSoundSelector">Select Audio Reminder:</label>
+                        <select id="alarmSoundSelector" class="form-control custom-select">
+                            <option value="Audio/manvoice.mp3">General Moore</option>
+                            <option value="Audio/womanvoice.mp3">Airline Lady</option>
+                            <option value="Audio/biodynamic.mp3">Biodynamic Sounds</option>
+                            <option value="Audio/time_up_samsung.mp3">Samsung Alarm</option>
+                            <option value="Audio/wolf5.mp3">Wolf Howl</option>
+                            <option value="Audio/cheer.mp3">Cheering Crowd</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <!-- Lap Results on the Right -->
+            <!-- Right Side Container (col-md-6) -->
             <div class="col-md-6">
                 <!-- Lap Records Table -->
                 <div id="lap-records-container" class="ml-4">
@@ -72,21 +130,6 @@
                         <!-- Lap records will be dynamically populated here -->
                     </table>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Audio Reminder Selection -->
-        <div class="card mt-3">
-            <div class="card-body">
-                <label for="alarmSoundSelector" style="color: white;">Select Audio Reminder:</label>
-                <select id="alarmSoundSelector" class="form-control custom-select">
-                    <option value="Audio/manvoice.mp3">General Moore</option>
-                    <option value="Audio/womanvoice.mp3">Airline Lady</option>
-                    <option value="Audio/biodynamic.mp3">Biodynamic Sounds</option>
-                    <option value="Audio/time_up_samsung.mp3">Samsung Alarm</option>
-                    <option value="Audio/wolf5.mp3">Wolf Howl</option>
-                    <option value="Audio/cheer.mp3">Cheering Crowd</option>
-                </select>
             </div>
         </div>
     </div>

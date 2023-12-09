@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let lapTimes = [];
 
     const timerDisplay = document.getElementById('timer');
-    const startKbSessionBtn = document.getElementById('startKbSession');
+    const startKbSession = document.getElementById('startKbSession');
     const addTenSecondsBtn = document.getElementById('addTenSeconds');
     const addThirtySecondsBtn = document.getElementById('addThirtySeconds');
     const recordLapBtn = document.getElementById('recordLap');
@@ -86,20 +86,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event listener for the "Start KB Session" button
-    startKbSessionBtn.addEventListener('click', function() {
-        // Initialize session start time and lapTimes array
-        sessionStartTime = new Date();
-        lapTimes = [];
+    
+    startKBSession.addEventListener('click', function() {
+    // Start the timer at 300 seconds (5 minutes)
+    startTimer(300);
 
-        // Start the timer at 300 seconds (5 minutes)
-        startTimer(300);
+    // Initialize session start time and lapTimes array
+    sessionStartTime = new Date();
+    lapTimes = [];
 
-        // Add the initial lap time to the lapTimes array
-        lapTimes.push(0);
-
-        // Update the lap records table with the initial lap time
-        updateLapRecordsTable();
-    });
+    // Update the lap records table with the first lap starting at 00:00
+    updateLapRecordsTable();
+});
 
     // Event listener for the "+10 Seconds" button
     addTenSecondsBtn.addEventListener('click', function() {
