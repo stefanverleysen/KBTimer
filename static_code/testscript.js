@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     let timer;
     let isRunning = false;
-    let countdownSeconds = 0;
+    let countdownSeconds = 300; // Default timer value
     let sessionStartTime;
     let lapTimes = [];
 
     const timerDisplay = document.getElementById('timer');
-    const startKbSession = document.getElementById('startKbSession');
+    const startKbSession = document.getElementById('startKBSession');
     const addTenSecondsBtn = document.getElementById('addTenSeconds');
     const addThirtySecondsBtn = document.getElementById('addThirtySeconds');
     const recordLapBtn = document.getElementById('recordLap');
     const lapRecordsTable = document.getElementById('lap-records');
     const alarmSoundSelector = document.getElementById('alarmSoundSelector');
+    const defaultTimerValueInput = document.getElementById('defaultTimerValue'); // Default timer value input
+
+    // Settings toggles
+    let muteAudio = false;
+    let enableVisualization = false;
 
     function updateDisplay(minutes, seconds) {
         timerDisplay.innerText = pad(minutes) + ':' + pad(seconds);
@@ -36,8 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (countdownSeconds < 0) {
             clearInterval(timer);
             isRunning = false;
-            playSelectedAudio();
-            initiateFallingImagesAnimation();
+            if (!muteAudio) {
+                playSelectedAudio();
+            }
+            if (enableVisualization) {
+                initiateFallingImagesAnimation();
+            }
+            timerDisplay.classList.remove('red-text', 'blink-text');
         } else if (countdownSeconds <= 10) {
             timerDisplay.classList.add('red-text', 'blink-text');
         }
@@ -67,9 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateLapRecordsTable() {
-        lapRecordsTable.innerHTML = ''; // Clear existing records
+        lapRecordsTable.innerHTML = '';
         lapTimes.forEach((time, index) => {
-            const row = lapRecordsTable.insertRow(0); // Insert at the top
+            const row = lapRecordsTable.insertRow(0);
             const cell = row.insertCell(0);
             cell.textContent = `Lap ${index + 1}: ${formatTime(time)}`;
         });
@@ -87,80 +97,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('settingsButton').addEventListener('click', function() {
         var settingsMenu = document.getElementById('settingsMenu');
-        if (settingsMenu.style.display === 'none') {
-            settingsMenu.style.display = 'block';
+        settingsMenu.style.display = settingsMenu.style.display === 'none' ? 'block' : 'none';
+    });
+
+    document.getElementById('muteAudio').addEventListener('change', function() {
+        muteAudio = this.checked;
+    });
+
+    document.getElementById('enableVisualization').addEventListener('change', function() {
+        enableVisualization = this.checked;
+    });
+
+    defaultTimerValueInput.addEventListener('change', function() {
+        var newDefaultTime = parseInt(this.value, 10);
+        if (!isNaN(newDefaultTime) && newDefaultTime > 0) {
+            countdownSeconds = newDefaultTime;
         } else {
-            settingsMenu.style.display = 'none';
+            alert("Please enter a valid number for the timer");
+            this.value = countdownSeconds;
         }
     });
 
-    // Assuming you have an audio element in your HTML like:
-    // <audio id="audioElement" src="your_audio_file.mp3"></audio>
-
-        // Mute Audio Checkbox Listener
-    document.getElementById('muteAudio').addEventListener('change', function() {
-    var audioElement = document.getElementById('audioElement');
-    if (this.checked) {
-        audioElement.muted = true; // Mute the audio
-    } else {
-        audioElement.muted = false; // Unmute the audio
-    }
+    startKbSession.addEventListener('click', function() {
+        startTimer(countdownSeconds);
+        sessionStartTime = new Date();
+        lapTimes = [];
+        updateLapRecordsTable();
     });
 
-    // Enable Visualization Checkbox Listener
-    document.getElementById('enableVisualization').addEventListener('change', function() {
-    if (this.checked) {
-        // Code to enable visualization
-        // For example, showing a visual element or changing its appearance
-        document.getElementById('visualizationElement').style.display = 'block';
-    } else {
-        // Code to disable visualization
-        document.getElementById('visualizationElement').style.display = 'none';
-    }
-    });
-
-// Additional logic to apply the default timer value
-document.getElementById('defaultTimerValue').addEventListener('change', function() {
-    var defaultTime = this.value;
-    // Update the timer's default value
-    // You'll need to integrate this with your timer logic
-    // For example: timer.setDefaultTime(defaultTime);
-});
-
-    // Event listener for the "Start KB Session" button
-    
-    startKBSession.addEventListener('click', function() {
-    // Start the timer at 300 seconds (5 minutes)
-    startTimer(300);
-
-    // Initialize session start time and lapTimes array
-    sessionStartTime = new Date();
-    lapTimes = [];
-
-    // Update the lap records table with the first lap starting at 00:00
-    updateLapRecordsTable();
-    });
-
-    // Event listener for the "+10 Seconds" button
     addTenSecondsBtn.addEventListener('click', function() {
         addTime(10);
     });
 
-    // Event listener for the "+30 Seconds" button
     addThirtySecondsBtn.addEventListener('click', function() {
         addTime(30);
     });
 
-    // Event listener for the "Lap" button
     recordLapBtn.addEventListener('click', function() {
-        // Calculate the lap time and add it to the lapTimes array
         const lapTime = Math.floor((new Date() - sessionStartTime) / 1000);
         lapTimes.push(lapTime);
-
-        // Update the lap records table with the lap time
         updateLapRecordsTable();
-
-        // Restart the timer at 300 seconds (5 minutes)
-        startTimer(300);
+        startTimer(countdownSeconds);
     });
 });
