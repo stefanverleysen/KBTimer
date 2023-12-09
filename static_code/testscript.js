@@ -112,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
     img.addEventListener('animationend', () => {
       img.remove(); // Removes the image after animation
     });
-  }
       
   });
   
