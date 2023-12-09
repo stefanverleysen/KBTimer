@@ -64,16 +64,29 @@ body {
   flex-wrap: wrap;
 }
 
-/* Fullscreen adjustments for timer */
-#timer:-webkit-full-screen,
-#timer:-moz-full-screen,
-#timer:fullscreen {
-  font-size: 15vw;
-  width: 100vw;
-  height: 100vh;
+/* Fullscreen adjustments for layout */
+#fullscreen-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+}
+
+#timer-container {
+  flex-basis: 50%; /* Adjust the width as needed */
+  text-align: center;
+}
+
+#lap-records-container {
+  flex-basis: 50%; /* Adjust the width as needed */
+  max-height: 100vh;
+  overflow-y: auto; /* Enable scroll for long tables */
+}
+
+#lap-records {
+  width: 100%;
+  /* Additional table styles here */
 }
 
 /* Header Styles */
@@ -99,8 +112,17 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  #fullscreen-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #timer-container, #lap-records-container {
+    flex-basis: 100%;
+  }
+
   #timer {
-    font-size: 3em;
+    font-size: 3em; /* Smaller font size for smaller screens */
   }
 
   .container {
@@ -130,5 +152,3 @@ footer {
     opacity: 1;
   }
 }
-
-
