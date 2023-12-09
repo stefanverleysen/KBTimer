@@ -6,11 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let lapTimes = [];
 
     const timerDisplay = document.getElementById('timer');
-    const startStopBtn = document.getElementById('startStop');
-    const resetBtn = document.getElementById('reset');
-    const tenSecondsBtn = document.getElementById('tenSeconds');
-    const thirtySecondsBtn = document.getElementById('thirtySeconds');
-    const twoMinutesBtn = document.getElementById('twoMinutes');
     const startKbSessionBtn = document.getElementById('startKbSession');
     const addTenSecondsBtn = document.getElementById('addTenSeconds');
     const addThirtySecondsBtn = document.getElementById('addThirtySeconds');
@@ -76,39 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
         lapTimes.forEach((time, index) => {
             const row = lapRecordsTable.insertRow(0); // Insert at the top
             const cell = row.insertCell(0);
-            cell.textContent = `Lap ${index + 1}: ${time} seconds`;
+            cell.textContent = `Lap ${index + 1}: ${formatTime(time)}`;
         });
+    }
+
+    function formatTime(timeInSeconds) {
+        const minutes = Math.floor(timeInSeconds / 60);
+        const seconds = timeInSeconds % 60;
+        return pad(minutes) + ':' + pad(seconds);
     }
 
     function pad(number) {
         return number < 10 ? '0' + number : number;
-    }
-
-    // Falling images animation based on audio selection
-    function initiateFallingImagesAnimation() {
-        const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
-
-        if (selectedOption === 'Audio/manvoice.mp3') {
-            createAndAnimateImage('images/jimtimesup.png');
-        } else if (selectedOption === 'Audio/wolf5.mp3') {
-            createAndAnimateImage('images/wolf.png');
-        }
-        // Add more conditions for other audio selections here if needed
-    }
-
-    function createAndAnimateImage(imageSrc) {
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.classList.add('falling-image');
-        document.body.appendChild(img);
-
-        setTimeout(() => {
-            img.style.animation = 'growAndShrink 10s forwards';
-        }, 100);
-
-        img.addEventListener('animationend', () => {
-            img.remove();
-        });
     }
 
     // Event listener for the "Start KB Session" button
@@ -116,11 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize session start time and lapTimes array
         sessionStartTime = new Date();
         lapTimes = [];
-        
+
         // Start the timer at 300 seconds (5 minutes)
         startTimer(300);
 
-        // Update the lap records table with the first lap starting at 00:00
+        // Add the initial lap time to the lapTimes array
+        lapTimes.push(0);
+
+        // Update the lap records table with the initial lap time
         updateLapRecordsTable();
     });
 
