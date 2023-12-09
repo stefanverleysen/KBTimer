@@ -66,52 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         timerDisplay.classList.remove('red-text', 'blink-text');
     }
 
-    // Event listeners for the timer buttons
-    startStopBtn.addEventListener('click', function() {
-        if (isRunning) {
-            clearInterval(timer);
-            isRunning = false;
-            resetColor();
-        } else {
-            startTimer(countdownSeconds > 0 ? countdownSeconds : 60);
-        }
-    });
-
-    resetBtn.addEventListener('click', resetTimer);
-
-    tenSecondsBtn.addEventListener('click', function() {
-        addTime(10);
-    });
-
-    thirtySecondsBtn.addEventListener('click', function() {
-        addTime(30);
-    });
-
-    twoMinutesBtn.addEventListener('click', function() {
-        startTimer(120);
-    });
-
-    startKbSessionBtn.addEventListener('click', function() {
-        sessionStartTime = new Date();
-        lapTimes = [];
-        startTimer(60); // Start with a default duration
-        updateLapRecordsTable();
-    });
-
-    addTenSecondsBtn.addEventListener('click', function() {
-        addTime(10);
-    });
-
-    addThirtySecondsBtn.addEventListener('click', function() {
-        addTime(30);
-    });
-
-    recordLapBtn.addEventListener('click', function() {
-        const lapTime = Math.floor((new Date() - sessionStartTime) / 1000);
-        lapTimes.push(lapTime);
-        updateLapRecordsTable();
-    });
-
     function addTime(seconds) {
         countdownSeconds += seconds;
         updateDisplay(Math.floor(countdownSeconds / 60), countdownSeconds % 60);
@@ -156,4 +110,40 @@ document.addEventListener('DOMContentLoaded', function() {
             img.remove();
         });
     }
+
+    // Event listener for the "Start KB Session" button
+    startKbSessionBtn.addEventListener('click', function() {
+        // Initialize session start time and lapTimes array
+        sessionStartTime = new Date();
+        lapTimes = [];
+        
+        // Start the timer at 300 seconds (5 minutes)
+        startTimer(300);
+
+        // Update the lap records table with the first lap starting at 00:00
+        updateLapRecordsTable();
+    });
+
+    // Event listener for the "+10 Seconds" button
+    addTenSecondsBtn.addEventListener('click', function() {
+        addTime(10);
+    });
+
+    // Event listener for the "+30 Seconds" button
+    addThirtySecondsBtn.addEventListener('click', function() {
+        addTime(30);
+    });
+
+    // Event listener for the "Lap" button
+    recordLapBtn.addEventListener('click', function() {
+        // Calculate the lap time and add it to the lapTimes array
+        const lapTime = Math.floor((new Date() - sessionStartTime) / 1000);
+        lapTimes.push(lapTime);
+
+        // Update the lap records table with the lap time
+        updateLapRecordsTable();
+
+        // Restart the timer at 300 seconds (5 minutes)
+        startTimer(300);
+    });
 });
