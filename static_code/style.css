@@ -135,6 +135,16 @@ footer {
   }
 }
 
+#lap-records-container {
+  background-color: black;
+  color: white;
+  /* Other styling as needed */
+}
+
+#lap-records {
+  /* Styling for the table */
+}
+
 @keyframes growAndShrink {
   0%, 100% {
     transform: translate(-50%, -50%) scale(0);
