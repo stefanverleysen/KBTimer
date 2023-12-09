@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tactical KB Timer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    header img {
+      max-width: 100%;
+      height: auto;
+    }
+    #timer {
+      font-size: 15em; /* Increase font size */
+      margin: 40px 0;
+    }
+    @media (max-width: 768px) {
+      header img {
+        max-width: 70%; /* Adjust for mobile */
+      }
+      #timer {
+        font-size: 5em; /* Adjust font size for smaller screens */
+      }
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px; /* Spacing between buttons */
+    }
+    .btn-row button {
+      flex: 1 1 30%; /* Flex grow, flex shrink, flex basis */
+      margin-bottom: 10px; /* Spacing below buttons */
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="text-center my-3">
+    <img src="images/TACTICAL-KB-TIMER.png" alt="TACTIAL KB TIMER" class="img-fluid">
+  </header>
+
+  <div class="container my-4">
+    <!-- Standalone Timer -->
+      <p class="card-text" id="timer">00:00</p>
+    <!-- Control Buttons -->
+    <div class="text-center my-2 btn-row">
+      <button id="startStop" class="btn btn-primary btn-slim">Start/Stop</button>
+      <button id="reset" class="btn btn-danger btn-slim">Reset</button>
+      <button id="fullscreenBtn" class="btn btn-secondary btn-slim">Fullscreen</button>
+    </div>
+    <div class="text-center my-2 btn-row">
+      <button id="thirtySeconds" class="btn btn-info btn-slim">30 Seconds</button>
+      <button id="twoMinutes" class="btn btn-success btn-slim">2 Minutes</button>
+    </div>
+    
+    <!-- Alarm Sound Selection -->
+    <div class="card my-2">
+      <div class="card-body text-center">
+        <label for="alarmSoundSelector" style="color: white;">Select Audio Reminder:</label>
+        <select id="alarmSoundSelector" class="form-control custom-select">
+          <option value="Audio/manvoice.mp3">Gentleman's Voice</option>
+          <option value="Audio/womanvoice.mp3">Fair Lady's Voice</option>
+          <option value="Audio/biodynamic.mp3">Biodynamic Sounds</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center my-3">
+  
+  </footer>
+  
+  <!-- Include your external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
