@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const twoMinutesBtn = document.getElementById('twoMinutes');
     const alarmSoundSelector = document.getElementById('alarmSoundSelector');
   
-    // Array to store falling image elements
-    const fallingImages = [];
-  
     function updateDisplay(minutes, seconds) {
       timerDisplay.innerText = pad(minutes) + ':' + pad(seconds);
     }
@@ -94,28 +91,20 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   
+    // Function to initiate and animate the image
     function initiateFallingImagesAnimation() {
-        const img = document.createElement('img');
-        img.src = 'images/jimtimesup.png'; // Your specified image
-        img.classList.add('falling-image');
-        img.style.position = 'fixed';
-        img.style.left = '50%';
-        img.style.top = '50%';
-        img.style.transform = 'translate(-50%, -50%) scale(0)';
-        img.style.zIndex = '9999'; // Ensures it's above other elements
-        document.body.appendChild(img);
-      
-        // Ensure the animation is applied after the image is appended
-        setTimeout(() => {
-          img.style.animation = 'growAndShrink 3s forwards'; // Adjust duration as needed
-        }, 100);
-      
-        // Remove the image after animation ends
-        img.addEventListener('animationend', () => {
-          img.remove();
-        });
-      }
-      
-      
+      const img = document.createElement('img');
+      img.src = 'images/jimtimesup.png'; // Your specified image
+      img.classList.add('falling-image');
+      document.body.appendChild(img);
+  
+      setTimeout(() => {
+        img.style.animation = 'growAndShrink 3s forwards'; // Starts the animation
+      }, 100); // Short delay to ensure DOM has updated
+  
+      img.addEventListener('animationend', () => {
+        img.remove(); // Removes the image after animation
+      });
+    }
   });
   

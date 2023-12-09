@@ -6,12 +6,16 @@ body {
   min-height: 100vh; /* Ensure body covers the full viewport height */
   margin: 0;
 }
-/* CSS for falling images */
+
 .falling-image {
   position: fixed;
-  width: 50px; /* Adjust the width as needed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px; /* Initial width */
   height: auto;
-  opacity: 1;
+  opacity: 0;
+  z-index: 9999;
 }
 
 .container {
