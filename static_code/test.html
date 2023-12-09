@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Tactical KB Timer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <style>
-    header img {
-      max-width: 100%;
-      height: auto;
-    }
-    #timer {
-      font-size: 15em; /* Increase font size */
-      margin: 40px 0;
-    }
-    @media (max-width: 768px) {
-      header img {
-        max-width: 70%; /* Adjust for mobile */
-      }
-      #timer {
-        font-size: 5em; /* Adjust font size for smaller screens */
-      }
-    }
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px; /* Spacing between buttons */
-    }
-    .btn-row button {
-      flex: 1 1 30%; /* Flex grow, flex shrink, flex basis */
-      margin-bottom: 10px; /* Spacing below buttons */
-    }
-  </style>
+    <title>Tactical KB Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #timer {
+            font-size: 15em; /* Increase font size */
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            header img {
+                max-width: 70%; /* Adjust for mobile */
+            }
+
+            #timer {
+                font-size: 5em; /* Adjust font size for smaller screens */
+            }
+        }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Spacing between buttons */
+        }
+
+        .btn-row button {
+            flex: 1 1 30%; /* Flex grow, flex shrink, flex basis */
+            margin-bottom: 10px; /* Spacing below buttons */
+        }
+    </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="text-center my-3">
@@ -42,22 +49,24 @@
 
     <!-- Fullscreen Container -->
     <div id="fullscreen-container" class="d-flex justify-content-center align-items-start my-4">
-        
+
         <!-- Timer and Control Buttons Container -->
         <div id="timer-container" class="text-center">
             <!-- Standalone Timer -->
             <p class="card-text" id="timer">00:00</p>
 
-            <!-- Control Buttons for Non-Fullscreen Mode -->
+            <!-- Control Buttons -->
             <div class="my-2 btn-row">
                 <button id="startStop" class="btn btn-primary btn-slim">Start/Stop</button>
                 <button id="reset" class="btn btn-danger btn-slim">Reset</button>
                 <button id="fullscreenBtn" class="btn btn-secondary btn-slim">Fullscreen</button>
+            </div>
+            <div class="my-2 btn-row">
                 <button id="tenSeconds" class="btn btn-info btn-slim">10 Seconds</button>
                 <button id="thirtySeconds" class="btn btn-info btn-slim">30 Seconds</button>
                 <button id="twoMinutes" class="btn btn-success btn-slim">2 Minutes</button>
             </div>
-        
+
             <!-- Alarm Sound Selection -->
             <div class="card my-2">
                 <div class="card-body">
@@ -74,11 +83,11 @@
             </div>
         </div>
 
-        <!-- Fullscreen Mode Buttons -->
-        <div id="fullscreen-controls" class="text-center fullscreen-only">
+        <!-- KB Session and Lap Timing Controls -->
+        <div id="kb-session-controls" class="text-center">
             <button id="startKbSession" class="btn btn-success">Start KB Session</button>
+            <button id="addTenSeconds" class="btn btn-info">+10 Seconds</button>
             <button id="addThirtySeconds" class="btn btn-info">+30 Seconds</button>
-            <button id="addSixtySeconds" class="btn btn-info">+60 Seconds</button>
             <button id="recordLap" class="btn btn-primary">Lap</button>
         </div>
 
@@ -98,4 +107,5 @@
     <!-- Include your external JavaScript file -->
     <script src="testscript.js"></script>
 </body>
+
 </html>
