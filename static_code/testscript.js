@@ -72,6 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
   
     resetBtn.addEventListener('click', resetTimer);
   
+    tenSecondsBtn.addEventListener('click', function () {
+        startTimer(10);
+      });
     thirtySecondsBtn.addEventListener('click', function () {
       startTimer(30);
     });
