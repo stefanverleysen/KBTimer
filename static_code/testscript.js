@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const timerDisplay = document.getElementById('timer');
     const startStopBtn = document.getElementById('startStop');
     const resetBtn = document.getElementById('reset');
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
     const tenSecondsBtn = document.getElementById('tenSeconds');
     const thirtySecondsBtn = document.getElementById('thirtySeconds');
     const twoMinutesBtn = document.getElementById('twoMinutes');
@@ -18,10 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const recordLapBtn = document.getElementById('recordLap');
     const lapRecordsTable = document.getElementById('lap-records');
     const alarmSoundSelector = document.getElementById('alarmSoundSelector');
-    const fsContainer = document.getElementById('fullscreen-container'); // Fullscreen container
 
     function updateDisplay(minutes, seconds) {
-        timerDisplay.innerText = pad(minutes) + ':' + pad(seconds); 
+        timerDisplay.innerText = pad(minutes) + ':' + pad(seconds);
     }
 
     function startTimer(duration) {
@@ -73,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isRunning) {
             clearInterval(timer);
             isRunning = false;
-            resetColor(); 
+            resetColor();
         } else {
             startTimer(countdownSeconds > 0 ? countdownSeconds : 60);
         }
@@ -90,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     twoMinutesBtn.addEventListener('click', function() {
-        startTimer(120); 
+        startTimer(120);
     });
 
     startKbSessionBtn.addEventListener('click', function() {
@@ -132,19 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return number < 10 ? '0' + number : number;
     }
 
-    // Fullscreen toggle functionality
-    fullscreenBtn.addEventListener('click', function() {
-        if (!document.fullscreenElement) {
-            if (fsContainer.requestFullscreen) {
-                fsContainer.requestFullscreen();
-            }
-        } else {
-            if (document.exitFullscreen) {  
-                document.exitFullscreen();
-            }
-        }
-    });
-
     // Falling images animation based on audio selection
     function initiateFallingImagesAnimation() {
         const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
@@ -165,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(() => {
             img.style.animation = 'growAndShrink 10s forwards';
-        }, 100); 
+        }, 100);
 
         img.addEventListener('animationend', () => {
             img.remove();
