@@ -1,29 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
+
   let timer;
+
   let isRunning = false;
+
   let countdownSeconds = 0;
 
   const timerDisplay = document.getElementById('timer');
+
   const startStopBtn = document.getElementById('startStop');
+
   const resetBtn = document.getElementById('reset');
+
   const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+  const tenSecondsBtn = document.getElementById('tenSeconds');
+
   const thirtySecondsBtn = document.getElementById('thirtySeconds');
+
   const twoMinutesBtn = document.getElementById('twoMinutes');
+
   const alarmSoundSelector = document.getElementById('alarmSoundSelector');
 
-  // Array to store falling image elements
-  const fallingImages = [];
-
   function updateDisplay(minutes, seconds) {
-    timerDisplay.innerText = pad(minutes) + ':' + pad(seconds);
+    timerDisplay.innerText = pad(minutes) + ':' + pad(seconds); 
   }
 
   function startTimer(duration) {
     countdownSeconds = duration;
+    
     if (!isRunning) {
       timer = setInterval(updateTime, 1000);
       isRunning = true;
     }
+    
     resetColor();
   }
 
@@ -32,18 +42,14 @@ document.addEventListener('DOMContentLoaded', function () {
     let seconds = countdownSeconds % 60;
 
     updateDisplay(minutes, seconds);
+
     countdownSeconds--;
 
     if (countdownSeconds < 0) {
       clearInterval(timer);
       isRunning = false;
       playSelectedAudio();
-      // Check if the selected audio is "Gentlemen's Voice"
-      const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
-      if (selectedOption === 'Audio/manvoice.mp3') {
-        // Initiate falling images animation
-        initiateFallingImagesAnimation();
-      }
+      initiateFallingImagesAnimation();
     } else if (countdownSeconds <= 10) {
       timerDisplay.classList.add('red-text', 'blink-text');
     }
@@ -67,11 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
     timerDisplay.classList.remove('red-text', 'blink-text');
   }
 
-  startStopBtn.addEventListener('click', function () {
+  startStopBtn.addEventListener('click', function() {
     if (isRunning) {
       clearInterval(timer);
       isRunning = false;
-      resetColor();
+      resetColor(); 
     } else {
       startTimer(countdownSeconds > 0 ? countdownSeconds : 60);
     }
@@ -79,11 +85,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   resetBtn.addEventListener('click', resetTimer);
 
-  thirtySecondsBtn.addEventListener('click', function () {
+  tenSecondsBtn.addEventListener('click', function() {
+    startTimer(10); 
+  });
+
+  thirtySecondsBtn.addEventListener('click', function() {
     startTimer(30);
   });
-  twoMinutesBtn.addEventListener('click', function () {
-    startTimer(120);
+
+  twoMinutesBtn.addEventListener('click', function() {
+    startTimer(120); 
   });
 
   function pad(number) {
@@ -91,43 +102,49 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Fullscreen functionality for the timer
-  fullscreenBtn.addEventListener('click', function () {
+
+  fullscreenBtn.addEventListener('click', function() {
     if (!document.fullscreenElement && timerDisplay.requestFullscreen) {
       timerDisplay.requestFullscreen();
-    } else if (document.exitFullscreen) {
+    } else if (document.exitFullscreen) {  
       document.exitFullscreen();
     }
   });
 
-  // Function to initiate falling images animation
   function initiateFallingImagesAnimation() {
-    // Create and append falling image elements
-    for (let i = 0; i < 10; i++) {
+    const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
+
+    // Check if the selected audio is "General Moore"
+
+    if (selectedOption === 'Audio/manvoice.mp3') {
       const img = document.createElement('img');
-      img.src = 'images/jimtimesup.png';
+      img.src = 'images/jimtimesup.png'; // Image for General Moore  
       img.classList.add('falling-image');
       document.body.appendChild(img);
-      fallingImages.push(img);
-    }
 
-    // Start the falling animation
-    animateFallingImages();
-  }
+      setTimeout(() => {
+        img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name  
+      }, 100);  // Short delay
 
-  // Function to animate falling images
-  function animateFallingImages() {
-    fallingImages.forEach((img, index) => {
-      const animationDuration = 5 + Math.random() * 5 + 's'; // Randomize animation duration
-      img.style.animation = `fall ${animationDuration} linear`;
-      img.style.left = Math.random() * window.innerWidth + 'px'; // Randomize horizontal position
-      img.style.opacity = '1'; // Make the image visible
-      img.style.transform = 'translateY(100vh)'; // Move the image to the bottom of the viewport
-
-      // Remove the image from the DOM after animation ends
       img.addEventListener('animationend', () => {
-        img.remove();
-        fallingImages.splice(index, 1);
+        img.remove(); // Removes the image after animation  
       });
-    });
-  }
+    }
+    
+   // Check if the selected audio is "Wolf Howl"
+    else if (selectedOption === 'Audio/wolf5.mp3') {
+      const img = document.createElement('img');
+      img.src = 'images/wolf.png'; // Image for Wolf Howl
+      img.classList.add('falling-image');
+      document.body.appendChild(img);
+
+      setTimeout(() => {
+        img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name
+      }, 100); // Short delay
+
+      img.addEventListener('animationend', () => {
+        img.remove(); // Removes the image after animation
+      });
+}
+  }  
 });
