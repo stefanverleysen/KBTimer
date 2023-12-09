@@ -94,24 +94,24 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   
-    // Function to initiate falling images animation
     function initiateFallingImagesAnimation() {
         const img = document.createElement('img');
-        img.src = 'images/jimtimesup.png'; // Using your specified image
+        img.src = 'images/jimtimesup.png'; // Your specified image
         img.classList.add('falling-image');
         img.style.position = 'fixed';
         img.style.left = '50%';
         img.style.top = '50%';
-        img.style.transform = 'translate(-50%, -50%)';
+        img.style.transform = 'translate(-50%, -50%) scale(0)';
         img.style.zIndex = '9999'; // Ensure it's above other elements
         document.body.appendChild(img);
       
-        img.style.animation = 'expandAndFlyAway 3s forwards'; // Match duration to your preference
+        img.style.animation = 'growAndShrink 3s forwards'; // Adjust duration as needed
       
         // Remove the image after animation ends
         img.addEventListener('animationend', () => {
           img.remove();
         });
       }
+      
   });
   
