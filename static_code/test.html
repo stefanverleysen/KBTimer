@@ -39,7 +39,29 @@
     <header class="text-center my-3">
         <img src="images/TACTICAL-KB-TIMER.png" alt="TACTICAL KB TIMER" class="img-fluid">
     </header>
+<!-- Settings Button -->
+<button id="settingsButton" class="btn btn-secondary my-2">Settings</button>
 
+<!-- Hidden Settings Menu -->
+<div id="settingsMenu" class="settings-menu" style="display: none;">
+    <!-- Default Timer Value -->
+    <div class="form-group">
+        <label for="defaultTimerValue">Default Timer Value (in seconds):</label>
+        <input type="number" id="defaultTimerValue" class="form-control" value="300">
+    </div>
+
+    <!-- Audio Reminder Checkbox -->
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="muteAudio">
+        <label class="form-check-label" for="muteAudio">Mute Audio</label>
+    </div>
+
+    <!-- Enable Visualization Checkbox -->
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="enableVisualization">
+        <label class="form-check-label" for="enableVisualization">Enable Visualization</label>
+    </div>
+</div>
     <div class="container my-4">
         <!-- Timer Display -->
         <p class="card-text" id="timer">00:00</p>

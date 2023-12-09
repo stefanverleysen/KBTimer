@@ -85,6 +85,48 @@ document.addEventListener('DOMContentLoaded', function() {
         return number < 10 ? '0' + number : number;
     }
 
+    document.getElementById('settingsButton').addEventListener('click', function() {
+        var settingsMenu = document.getElementById('settingsMenu');
+        if (settingsMenu.style.display === 'none') {
+            settingsMenu.style.display = 'block';
+        } else {
+            settingsMenu.style.display = 'none';
+        }
+    });
+
+    // Assuming you have an audio element in your HTML like:
+    // <audio id="audioElement" src="your_audio_file.mp3"></audio>
+
+        // Mute Audio Checkbox Listener
+    document.getElementById('muteAudio').addEventListener('change', function() {
+    var audioElement = document.getElementById('audioElement');
+    if (this.checked) {
+        audioElement.muted = true; // Mute the audio
+    } else {
+        audioElement.muted = false; // Unmute the audio
+    }
+    });
+
+    // Enable Visualization Checkbox Listener
+    document.getElementById('enableVisualization').addEventListener('change', function() {
+    if (this.checked) {
+        // Code to enable visualization
+        // For example, showing a visual element or changing its appearance
+        document.getElementById('visualizationElement').style.display = 'block';
+    } else {
+        // Code to disable visualization
+        document.getElementById('visualizationElement').style.display = 'none';
+    }
+    });
+
+// Additional logic to apply the default timer value
+document.getElementById('defaultTimerValue').addEventListener('change', function() {
+    var defaultTime = this.value;
+    // Update the timer's default value
+    // You'll need to integrate this with your timer logic
+    // For example: timer.setDefaultTime(defaultTime);
+});
+
     // Event listener for the "Start KB Session" button
     
     startKBSession.addEventListener('click', function() {
@@ -97,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update the lap records table with the first lap starting at 00:00
     updateLapRecordsTable();
-});
+    });
 
     // Event listener for the "+10 Seconds" button
     addTenSecondsBtn.addEventListener('click', function() {
