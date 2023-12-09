@@ -113,5 +113,5 @@ document.addEventListener('DOMContentLoaded', function () {
       img.remove(); // Removes the image after animation
     });
       
-  });
+
   
