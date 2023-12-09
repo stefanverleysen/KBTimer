@@ -102,16 +102,20 @@ document.addEventListener('DOMContentLoaded', function () {
         img.style.left = '50%';
         img.style.top = '50%';
         img.style.transform = 'translate(-50%, -50%) scale(0)';
-        img.style.zIndex = '9999'; // Ensure it's above other elements
+        img.style.zIndex = '9999'; // Ensures it's above other elements
         document.body.appendChild(img);
       
-        img.style.animation = 'growAndShrink 3s forwards'; // Adjust duration as needed
+        // Ensure the animation is applied after the image is appended
+        setTimeout(() => {
+          img.style.animation = 'growAndShrink 3s forwards'; // Adjust duration as needed
+        }, 100);
       
         // Remove the image after animation ends
         img.addEventListener('animationend', () => {
           img.remove();
         });
       }
+      
       
   });
   
