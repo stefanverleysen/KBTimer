@@ -130,5 +130,21 @@ document.addEventListener('DOMContentLoaded', function() {
           img.remove(); // Removes the image after animation  
         });
       }
+      
+     // Check if the selected audio is "Wolf Howl"
+      else if (selectedOption === 'Audio/wolf5.mp3') {
+        const img = document.createElement('img');
+        img.src = 'images/wolf.png'; // Image for Wolf Howl
+        img.classList.add('falling-image');
+        document.body.appendChild(img);
+
+        setTimeout(() => {
+          img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name
+        }, 100); // Short delay
+
+        img.addEventListener('animationend', () => {
+          img.remove(); // Removes the image after animation
+        });
+  }
     }  
   });
