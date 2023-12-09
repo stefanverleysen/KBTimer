@@ -48,13 +48,11 @@
             <!-- Standalone Timer -->
             <p class="card-text" id="timer">00:00</p>
 
-            <!-- Control Buttons -->
+            <!-- Control Buttons for Non-Fullscreen Mode -->
             <div class="my-2 btn-row">
                 <button id="startStop" class="btn btn-primary btn-slim">Start/Stop</button>
                 <button id="reset" class="btn btn-danger btn-slim">Reset</button>
                 <button id="fullscreenBtn" class="btn btn-secondary btn-slim">Fullscreen</button>
-            </div>
-            <div class="my-2 btn-row">
                 <button id="tenSeconds" class="btn btn-info btn-slim">10 Seconds</button>
                 <button id="thirtySeconds" class="btn btn-info btn-slim">30 Seconds</button>
                 <button id="twoMinutes" class="btn btn-success btn-slim">2 Minutes</button>
@@ -76,11 +74,11 @@
             </div>
         </div>
 
-        <!-- KB Session and Lap Timing Controls -->
-        <div id="kb-session-controls" class="text-center">
+        <!-- Fullscreen Mode Buttons -->
+        <div id="fullscreen-controls" class="text-center fullscreen-only">
             <button id="startKbSession" class="btn btn-success">Start KB Session</button>
-            <button id="addTenSeconds" class="btn btn-info">+10 Seconds</button>
             <button id="addThirtySeconds" class="btn btn-info">+30 Seconds</button>
+            <button id="addSixtySeconds" class="btn btn-info">+60 Seconds</button>
             <button id="recordLap" class="btn btn-primary">Lap</button>
         </div>
 
@@ -100,5 +98,4 @@
     <!-- Include your external JavaScript file -->
     <script src="testscript.js"></script>
 </body>
-
 </html>

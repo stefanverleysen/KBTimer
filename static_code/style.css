@@ -15,7 +15,7 @@ body {
   width: auto; /* Adjust as needed */
   height: auto; /* Adjust as needed */
   z-index: 9999;
-  animation: growAndShrink 10s forwards; /* Changed from 3s to 10s */
+  animation: growAndShrink 10s forwards; /* Animation for falling images */
 }
 
 .container {
@@ -88,6 +88,8 @@ body {
   flex-basis: 50%;
   max-height: 100vh;
   overflow-y: auto; /* Enable scroll for long tables */
+  background-color: black;
+  color: white;
 }
 
 /* Header Styles */
@@ -135,14 +137,24 @@ footer {
   }
 }
 
-#lap-records-container {
-  background-color: black;
-  color: white;
-  /* Other styling as needed */
+#lap-records {
+  width: 100%; /* Full width of its container */
+  border-collapse: collapse; /* Collapses border spacing */
+  text-align: left; /* Align text to the left within cells */
+  color: white; /* White text color */
 }
 
-#lap-records {
-  /* Styling for the table */
+#lap-records th, #lap-records td {
+  padding: 8px; /* Padding within cells */
+  border: 1px solid white; /* White border for cells */
+}
+
+#lap-records th {
+  background-color: #333; /* Dark background for header */
+}
+
+#lap-records tr:nth-child(even) {
+  background-color: #222; /* Slightly lighter background for even rows */
 }
 
 @keyframes growAndShrink {
