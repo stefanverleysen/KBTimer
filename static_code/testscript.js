@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const startStopBtn = document.getElementById('startStop');
     const resetBtn = document.getElementById('reset');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const tenSecondsBtn = document.getElementById('tenSeconds');
     const thirtySecondsBtn = document.getElementById('thirtySeconds');
     const twoMinutesBtn = document.getElementById('twoMinutes');
     const alarmSoundSelector = document.getElementById('alarmSoundSelector');
