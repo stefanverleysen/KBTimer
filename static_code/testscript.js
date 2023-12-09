@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(img);
       
         setTimeout(() => {
-          img.style.animation = 'growAndShrink 3s forwards'; // Make sure this matches your CSS animation name
+          img.style.animation = 'growAndShrink 10s forwards'; // Make sure this matches your CSS animation name
         }, 100); // Short delay
       
         img.addEventListener('animationend', () => {

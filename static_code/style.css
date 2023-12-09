@@ -15,6 +15,7 @@ body {
   width: auto; /* Adjust as needed */
   height: auto; /* Adjust as needed */
   z-index: 9999;
+  animation: growAndShrink 10s forwards; /* Changed from 3s to 10s */
 }
 
 .container {
