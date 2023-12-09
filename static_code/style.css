@@ -113,17 +113,21 @@ footer {
 }
 
 @keyframes growAndShrink {
-  0% {
+  0%, 100% {
     transform: translate(-50%, -50%) scale(0);
-    opacity: 0.25;
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.2); /* Slightly larger scale for a jarring effect */
+    opacity: 1;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1); /* Adjust scale for the desired size */
-    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.8); /* Smaller scale for a jarring effect */
+    opacity: 1;
   }
-  100% {
-    transform: translate(-50%, -50%) scale(10);
-    opacity: 1.0;
+  70% {
+    transform: translate(-50%, -50%) scale(1.2); /* Back to larger scale */
+    opacity: 1;
   }
 }
 
