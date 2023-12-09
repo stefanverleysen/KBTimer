@@ -94,21 +94,25 @@ document.addEventListener('DOMContentLoaded', function () {
         document.exitFullscreen();
       }
     });
+
+ function initiateFallingImagesAnimation() {
+  const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
+
+  // Check if the selected audio is "General Moore"
+  if (selectedOption === 'Audio/manvoice.mp3') {
+    const img = document.createElement('img');
+    img.src = 'images/jimtimesup.png'; // Image for General Moore
+    img.classList.add('falling-image');
+    document.body.appendChild(img);
   
-    function initiateFallingImagesAnimation() {
-        const img = document.createElement('img');
-        img.src = 'images/jimtimesup.png'; // Make sure the path is correct
-        img.classList.add('falling-image');
-        document.body.appendChild(img);
-      
-        setTimeout(() => {
-          img.style.animation = 'growAndShrink 10s forwards'; // Make sure this matches your CSS animation name
-        }, 100); // Short delay
-      
-        img.addEventListener('animationend', () => {
-          img.remove(); // Removes the image after animation
-        });
-      }
+    setTimeout(() => {
+      img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name
+    }, 100); // Short delay
+  
+    img.addEventListener('animationend', () => {
+      img.remove(); // Removes the image after animation
+    });
+  }
       
   });
   
