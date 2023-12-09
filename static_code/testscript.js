@@ -96,18 +96,22 @@ document.addEventListener('DOMContentLoaded', function () {
   
     // Function to initiate falling images animation
     function initiateFallingImagesAnimation() {
-      for (let i = 0; i < 20; i++) { // Change 20 to the number of images you want
         const img = document.createElement('img');
         img.src = 'images/jimtimesup.png'; // Using your specified image
         img.classList.add('falling-image');
-        img.style.left = Math.random() * window.innerWidth + 'px'; // Randomize horizontal position
+        img.style.position = 'fixed';
+        img.style.left = '50%';
+        img.style.top = '50%';
+        img.style.transform = 'translate(-50%, -50%)';
+        img.style.zIndex = '9999'; // Ensure it's above other elements
         document.body.appendChild(img);
-  
-        // Optional: Remove the image after animation ends
-        setTimeout(() => {
-          document.body.removeChild(img);
-        }, 3000); // 3000 should match your animation duration in CSS
+      
+        img.style.animation = 'expandAndFlyAway 3s forwards'; // Match duration to your preference
+      
+        // Remove the image after animation ends
+        img.addEventListener('animationend', () => {
+          img.remove();
+        });
       }
-    }
   });
   
