@@ -111,6 +111,23 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
+     // Check if the selected audio is "Samaung"
+     if (selectedOption === 'Audio/time_up_samsung.mp3') {
+      const img = document.createElement('img');
+      img.src = 'images/koreanboyband.png'; // Image of Koreans  
+      img.classList.add('falling-image');
+      document.body.appendChild(img);
+  
+      setTimeout(() => {
+        img.style.animation = 'none'; // Remove the animation
+        void img.offsetWidth; // Trigger a reflow to apply the style change immediately
+        img.style.animation = 'growAndShrink 10s forwards'; // Re-add the animation
+      }, 100);  // Short delay
+  
+      img.addEventListener('animationend', () => {
+        img.remove(); // Removes the image after animation  
+      });
+    }
     // Check if the selected audio is "Wolf Howl"
     else if (selectedOption === 'Audio/wolf5.mp3') {
       const img = document.createElement('img');

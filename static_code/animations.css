@@ -1,15 +1,58 @@
 @keyframes growAndShrink {
-    0% {
-      transform: translate(-50%, -50%) scale(0); /* Initial state, fully scaled down */
-      opacity: 0.25; /* Initial opacity, fully transparent */
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(2); /* Midpoint state, slightly larger */
-      opacity: 0.75; /* Midpoint opacity, partially visible */
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(4); /* Final state, original size */
-      opacity: 1.0; /* Final opacity, fully visible */
-    }
+  0% {
+    transform: translate(-50%, -50%) scale(0); /* Initial state, fully scaled down */
+    opacity: 0.25; /* Initial opacity, fully transparent */
   }
-  
+  30% {
+    transform: translate(-50%, -50%) scale(1.2); /* Slight growth at 30% */
+    opacity: 0.8; /* Partial opacity */
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1); /* Midpoint state, normal size */
+    opacity: 1.0; /* Full opacity */
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2); /* Slight growth at 70% */
+    opacity: 0.8; /* Partial opacity */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0); /* Final state, fully scaled down */
+    opacity: 0.25; /* Final opacity, fully transparent */
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-10px); /* Increase the translateX value */
+  }
+  20% {
+    transform: translateX(10px); /* Increase the translateX value */
+  }
+  30% {
+    transform: translateX(-10px); /* Increase the translateX value */
+  }
+  40% {
+    transform: translateX(10px); /* Increase the translateX value */
+  }
+  50% {
+    transform: translateX(-10px); /* Increase the translateX value */
+  }
+  60% {
+    transform: translateX(10px); /* Increase the translateX value */
+  }
+  70% {
+    transform: translateX(-10px); /* Increase the translateX value */
+  }
+  80% {
+    transform: translateX(10px); /* Increase the translateX value */
+  }
+  90% {
+    transform: translateX(-10px); /* Increase the translateX value */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
