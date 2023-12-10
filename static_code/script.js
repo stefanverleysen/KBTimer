@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-     // Check if the selected audio is "Samaung"
-     if (selectedOption === 'Audio/time_up_samsung.mp3') {
+     // Check if the selected audio is "Korean"
+     if (selectedOption === 'Audio/korean-i-luv-u.mp3') {
       const img = document.createElement('img');
       img.src = 'images/koreanboyband.png'; // Image of Koreans  
       img.classList.add('falling-image');
