@@ -1,25 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-
   let timer;
-
   let isRunning = false;
-
   let countdownSeconds = 0;
-
   const timerDisplay = document.getElementById('timer');
-
   const startStopBtn = document.getElementById('startStop');
-
   const resetBtn = document.getElementById('reset');
-
   const fullscreenBtn = document.getElementById('fullscreenBtn');
-
   const tenSecondsBtn = document.getElementById('tenSeconds');
-
   const thirtySecondsBtn = document.getElementById('thirtySeconds');
-
   const twoMinutesBtn = document.getElementById('twoMinutes');
-
   const alarmSoundSelector = document.getElementById('alarmSoundSelector');
 
   function updateDisplay(minutes, seconds) {
@@ -101,50 +90,43 @@ document.addEventListener('DOMContentLoaded', function() {
     return number < 10 ? '0' + number : number;
   }
 
-  // Fullscreen functionality for the timer
-
-  fullscreenBtn.addEventListener('click', function() {
-    if (!document.fullscreenElement && timerDisplay.requestFullscreen) {
-      timerDisplay.requestFullscreen();
-    } else if (document.exitFullscreen) {  
-      document.exitFullscreen();
-    }
-  });
-
   function initiateFallingImagesAnimation() {
     const selectedOption = alarmSoundSelector.options[alarmSoundSelector.selectedIndex].value;
-
+  
     // Check if the selected audio is "General Moore"
-
     if (selectedOption === 'Audio/manvoice.mp3') {
       const img = document.createElement('img');
       img.src = 'images/jimtimesup.png'; // Image for General Moore  
       img.classList.add('falling-image');
       document.body.appendChild(img);
-
+  
       setTimeout(() => {
-        img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name  
+        img.style.animation = 'none'; // Remove the animation
+        void img.offsetWidth; // Trigger a reflow to apply the style change immediately
+        img.style.animation = 'growAndShrink 10s forwards'; // Re-add the animation
       }, 100);  // Short delay
-
+  
       img.addEventListener('animationend', () => {
         img.remove(); // Removes the image after animation  
       });
     }
     
-   // Check if the selected audio is "Wolf Howl"
+    // Check if the selected audio is "Wolf Howl"
     else if (selectedOption === 'Audio/wolf5.mp3') {
       const img = document.createElement('img');
       img.src = 'images/wolf.png'; // Image for Wolf Howl
       img.classList.add('falling-image');
       document.body.appendChild(img);
-
+  
       setTimeout(() => {
-        img.style.animation = 'growAndShrink 10s forwards'; // CSS animation name
+        img.style.animation = 'none'; // Remove the animation
+        void img.offsetWidth; // Trigger a reflow to apply the style change immediately
+        img.style.animation = 'growAndShrink 10s forwards'; // Re-add the animation
       }, 100); // Short delay
-
+  
       img.addEventListener('animationend', () => {
         img.remove(); // Removes the image after animation
       });
-}
+    }
   }  
 });

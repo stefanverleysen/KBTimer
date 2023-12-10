@@ -1,0 +1,15 @@
+@keyframes growAndShrink {
+    0% {
+      transform: translate(-50%, -50%) scale(0); /* Initial state, fully scaled down */
+      opacity: 0.25; /* Initial opacity, fully transparent */
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(2); /* Midpoint state, slightly larger */
+      opacity: 0.75; /* Midpoint opacity, partially visible */
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(4); /* Final state, original size */
+      opacity: 1.0; /* Final opacity, fully visible */
+    }
+  }
+  
