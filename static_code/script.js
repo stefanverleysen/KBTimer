@@ -110,7 +110,23 @@ document.addEventListener('DOMContentLoaded', function() {
         img.remove(); // Removes the image after animation  
       });
     }
-    
+    // Check if the selected audio is "Cheering Crown"
+    if (selectedOption === 'Audio/cheer.mp3') {
+      const img = document.createElement('img');
+      img.src = 'images/airhorn.png'; // Image of Airhorn  
+      img.classList.add('falling-image');
+      document.body.appendChild(img);
+  
+      setTimeout(() => {
+        img.style.animation = 'none'; // Remove the animation
+        void img.offsetWidth; // Trigger a reflow to apply the style change immediately
+        img.style.animation = 'growAndShrink 10s forwards'; // Re-add the animation
+      }, 100);  // Short delay
+  
+      img.addEventListener('animationend', () => {
+        img.remove(); // Removes the image after animation  
+      });
+    }
      // Check if the selected audio is "Korean"
      if (selectedOption === 'Audio/korean-i-luv-u.mp3') {
       const img = document.createElement('img');
