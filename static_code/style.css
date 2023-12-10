@@ -99,14 +99,11 @@ button {
   box-shadow: 0px 0px 10px rgb(0, 0, 0);
   background-color: #000000;
 }
-#settingsButton:focus {
-  outline: none; /* Removes the outline */
-}
+
 #timer {
   font-size: 20em;
   color: white;
   margin-top: 5px;
-  margin-bottom 5px;
   padding: 5px 0;
   text-align: center;
 }
