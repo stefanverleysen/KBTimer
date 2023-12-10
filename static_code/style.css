@@ -5,7 +5,17 @@ body {
   flex-direction: column;
   margin: 0;
 }
+button {
+  display: inline-block; /* Applies to all <button> elements */
+  padding: 5px 10px; /* Adjust padding as needed */
+  /* Other styling rules */
+}
 
+.card.my-2 {
+  background-color: black;
+  color: white; /* Set text color to white */
+  /* Add any other styling you want */
+}
 .falling-image {
   position: fixed;
   top: 50%;
@@ -15,6 +25,14 @@ body {
   height: auto;
   z-index: 9999;
   animation: growAndShrink 10s forwards;
+}
+#defaultTimerValue {
+  width: 65px; /* Adjust the width as needed */
+  padding: 5px; /* Optional: Adjust padding for better text visibility */
+  font-size: 14px; /* Optional: Adjust font size if necessary */
+  display: block; /* Makes the element a block-level element */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container {
@@ -29,19 +47,61 @@ body {
   justify-content: space-between;
   padding: 10px;
 }
+.btn-slim {
+  padding: 5px 10px; /* Minimal padding for a slimmer appearance */
+  width: auto; /* Adjusts the width to the content of the button */
+  display: inline-block; /* Allows the button to shrink/grow according to content */
+}
+
+
+
+.btn-slim {
+  padding: 5px 5px; /* Smaller padding to make the button slimmer */
+  width: auto;
+  display: inline-block; /* Allows the button to shrink/grow according to content */
+  font-size: 14px; /* Adjust the font size as needed */
+  /* Add any other styles you want for your slim button */
+}
 
 .settings-menu {
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   padding: 15px;
   margin-bottom: 15px;
+  color: white;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 10px;
+}
+/* Target the label and select elements inside #settingsMenu and align them to the left */
+#settingsMenu label,
+#settingsMenu select {
+    text-align: left;
+}
+#settingsMenu label[for="alarmSoundSelector"] {
+  text-align: left; /* Align the label text to the left */
 }
 
-.card {
+/* Target the select element for "Select Audio Reminder" */
+#settingsMenu #alarmSoundSelector {
+  text-align: left; /* Align the select element to the left */
+}
+#settingsButton {
+  background-color: #4a4a4a;
+  color: white; /* Ensuring the text is readable on a black background */
+  border: none; /* Optional: removes the default border */
+}
+
+#card {
   border: none;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
   background-color: #000000;
 }
-
+#settingsButton:focus {
+  outline: none; /* Removes the outline */
+}
 #timer {
   font-size: 20em;
   color: white;
@@ -76,6 +136,9 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
+.white-text {
+  color: white; /* Sets the text color to white */
+}
 
 /* Fullscreen specific adjustments */
 #fullscreen-container:-webkit-full-screen,
@@ -86,6 +149,16 @@ body {
   align-items: start;
   width: 100vw;
   height: 100vh;
+}
+.white-text-table {
+  color: white; /* Sets the text color to white */
+}
+.table td, .table th {
+  border-top: none; /* Removes the top border of table cells */
+}
+
+.table {
+  border-collapse: collapse; /* Optional: For cleaner look with no spacing */
 }
 
 

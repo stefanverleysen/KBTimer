@@ -32,6 +32,38 @@
             flex: 1 1 30%; /* Flex grow, flex shrink, flex basis */
             margin-bottom: 10px; /* Spacing below buttons */
         }
+        /* Add this CSS for settings */
+        #settingsButton {
+            display: inline-block;
+            background-color: black; /* Set the background color to black */
+            color: white; /* Set text color to white */
+            border: none; /* Remove border */
+        }
+        #settingsMenu {
+            display: none; /* Initially hide the settings menu */
+            background-color: black; /* Set background color for the menu */
+            color: white; /* Set text color for the menu */
+            padding: 10px; /* Add some padding for spacing */
+        }
+        .white-text {
+            color: white; /* Set text color to white */
+        }
+        .white-text-table {
+            border-collapse: collapse; /* Remove border spacing */
+        }
+        .white-text-table th,
+        .white-text-table td {
+            border: none; /* Remove table borders */
+        }
+        /* Additional CSS for buttons */
+        .btn-slim {
+            padding: 5px 10px; /* Adjust padding as needed */
+        }
+        .btn-success.btn-slim,
+        .btn-info.btn-slim,
+        .btn-primary.btn-slim {
+            width: auto; /* Buttons take up as much space as needed */
+        }
     </style>
 </head>
 <body>
@@ -39,29 +71,6 @@
     <header class="text-center my-3">
         <img src="images/TACTICAL-KB-TIMER.png" alt="TACTICAL KB TIMER" class="img-fluid">
     </header>
-<!-- Settings Button -->
-<button id="settingsButton" class="btn btn-secondary my-2">Settings</button>
-
-<!-- Hidden Settings Menu -->
-<div id="settingsMenu" class="settings-menu" style="display: none;">
-    <!-- Default Timer Value -->
-    <div class="form-group">
-        <label for="defaultTimerValue">Default Timer Value (in seconds):</label>
-        <input type="number" id="defaultTimerValue" class="form-control" value="300">
-    </div>
-
-    <!-- Audio Reminder Checkbox -->
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="muteAudio">
-        <label class="form-check-label" for="muteAudio">Mute Audio</label>
-    </div>
-
-    <!-- Enable Visualization Checkbox -->
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="enableVisualization">
-        <label class="form-check-label" for="enableVisualization">Enable Visualization</label>
-    </div>
-</div>
     <div class="container my-4">
         <!-- Timer Display -->
         <p class="card-text" id="timer">00:00</p>
@@ -73,37 +82,56 @@
             <button id="addThirtySeconds" class="btn btn-info btn-slim">+30 Sec</button>
             <button id="recordLap" class="btn btn-primary btn-slim">Log</button>
         </div>
-
+        
+<!-- Expanding Settings Button and Logic-->
+<div>
+    <!-- Settings Button -->
+    <button id="settingsButton" class="btn btn-secondary my-2">Settings</button>         
+    <!-- Hidden Settings Menu -->
+    <div id="settingsMenu" class="settings-menu" style="display: none;">
+        <!-- Audio Reminder Checkbox -->
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="muteAudio">
+            <label class="form-check-label white-text" for="muteAudio">Mute Audio</label>
+        </div>
+        <!-- Enable Visualization Checkbox -->
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="enableVisualization">
+            <label class="form-check-label white-text" for="enableVisualization">Enable Visualization</label>
+        </div>
+        <!-- Default Timer Value -->
+        <div class="form-group">
+            <label for="defaultTimerValue" class="white-text">Default Timer Value (in seconds):</label>
+            <input type="number" id="defaultTimerValue" class="form-control" value="300">
+        </div>
         <!-- Audio Reminder Selection -->
         <div class="card my-2">
             <div class="card-body text-center">
-              <label for="alarmSoundSelector" style="color: white;">Select Audio Reminder:</label>
-              <select id="alarmSoundSelector" class="form-control custom-select">
-                <option value="Audio/manvoice.mp3">General Moore</option>
-                <option value="Audio/womanvoice.mp3">Airline Lady</option>
-                <option value="Audio/biodynamic.mp3">Biodynamic Sounds</option>
-                <option value="Audio/time_up_samsung.mp3">Samsung Alarm</option>
-                <option value="Audio/wolf5.mp3">Wolf Howl</option>
-                <option value="Audio/cheer.mp3">Cheering Crowd</option>
-      
-      
-              </select>
+                <label for="alarmSoundSelector" style="color: white;">Select Audio Reminder:</label>
+                <select id="alarmSoundSelector" class="form-control custom-select">
+                    <option value="Audio/manvoice.mp3">General Moore</option>
+                    <option value="Audio/womanvoice.mp3">Airline Lady</option>
+                    <option value="Audio/biodynamic.mp3">Biodynamic Sounds</option>
+                    <option value="Audio/time_up_samsung.mp3">Samsung Alarm</option>
+                    <option value="Audio/wolf5.mp3">Wolf Howl</option>
+                    <option value="Audio/cheer.mp3">Cheering Crowd</option>
+                </select>
             </div>
-          </div>
-
+        </div>
+    </div>
+</div>
+       
         <!-- Lap Records Table -->
-        <div id="lap-records-container" class="my-4">
-            <table id="lap-records" class="table mx-auto">
+        <div id="lap-records-container">
+            <table id="lap-records" class="table mx-auto white-text-table">
                 <!-- Lap records will be dynamically populated here -->
             </table>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="text-center my-3">
-        <!-- Footer content -->
-    </footer>
-
+    <footer class="text-center my-3"></footer>
+    
     <!-- Include your external JavaScript file -->
     <script src="testscript.js"></script>
 </body>
